@@ -1,8 +1,10 @@
 # Corsi di livellamento per CLAMSES
 
-Questa repository verrà utilizzata per condividere il materiale relativo ai corsi di livellamento del Corso di Studi CLAMSES per tutti coloro che, per il momento, non possono accedere alle pagine e-learning: [Analisi Matematica](https://elearning.unimib.it/course/view.php?id=52809) e [Software R](https://elearning.unimib.it/course/view.php?id=52810). 
+Questa repository verrà utilizzata per condividere il materiale relativo ai corsi di livellamento del Corso di Studi CLAMSES per tutti coloro che, per il momento, non possono accedere alle pagine e-learning: [Analisi Matematica](https://elearning.unimib.it/course/view.php?id=52809) e [Software R](https://elearning.unimib.it/course/view.php?id=52810).
 
 Entrambi i corsi possono essere seguiti sia in aula/laboratorio che a distanza. Per collegarvi alle lezioni del corso di Analisi da remoto potete utilizzare il seguente link: https://unimib.webex.com/meet/lorenzo.ghilotti. Analogamente, per il corso di R: https://unimib.webex.com/meet/andrea.gilardi.
+
+Per maggiori informazioni su entrambi i corsi, potete consultare i syllabus: [qui](https://elearning.unimib.it/course/info.php?id=52809) e [qui](https://elearning.unimib.it/course/info.php?id=52810). 
 
 ## Orari del corso di Analisi Matematica: 
 
