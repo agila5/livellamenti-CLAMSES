@@ -2,12 +2,20 @@
 
 Questa repository verrà utilizzata per condividere il materiale relativo ai corsi di livellamento del Corso di Studi CLAMSES per tutti coloro che, per il momento, non possono accedere alle pagine e-learning: [Analisi Matematica](https://elearning.unimib.it/course/view.php?id=52809) e [Software R](https://elearning.unimib.it/course/view.php?id=52810). 
 
+Entrambi i corsi possono essere seguiti sia in aula/laboratorio che a distanza. Per collegarvi alle lezioni del corso di Analisi da remoto potete utilizzare il seguente link: https://unimib.webex.com/meet/lorenzo.ghilotti. Analogamente, per il corso di R: https://unimib.webex.com/meet/andrea.gilardi.
+
 ## Orari del corso di Analisi Matematica: 
+
+- Lunedì 18/9, ore 14.30 - 17.30, aula U6-30
+- Martedì 19/9, ore 14.30 - 17.30, aula U6-32
+- Mercoledì 20/9, ore 14.30 - 17.30, aula U6-30
+- Giovedì 21/9, ore 10.30 - 13.30, aula U16-14
+- Giovedì 21/9, ore 14.30 - 17.30, aula U6-30
 
 ## Orari del corso di R: 
 
-- 18/9 dalle 10.30 alle 13.30 nel Lab 531 (U5)
-- 19/9 dalle 10.30 alle 13.30 (online)
-- 20/9 dalle  8.30 alle 10.30 nel lab 531 (U5)
-- 22/9 dalle 10.30 alle 13.30 e dalle 14.30 alle 16.30 nel lab 531 (U5)
-
+- Lunedì 18/9, ore 10.30 - 13.30, Lab 531 (U5)
+- Martedì 19/9, ore 10.30 - 13.30 (online)
+- Mercoledì 20/9, ore 8.30 - 10.30, lab 531 (U5)
+- Venerdì 22/9, ore 10.30 - 13.30, lab 531 (U5)
+- Venerdì 22/9, ore 14.30 - 16.30, lab 531 (U5)
