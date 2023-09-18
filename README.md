@@ -24,6 +24,4 @@ Per maggiori informazioni su entrambi i corsi, potete consultare i syllabus: [qu
 
 ## Laboratorio Virtuale 
 
-Potete utilizzare il seguente link per accedere al laboratorio virtuale di Ateneo: VMware Horizon (unimib.it)
-
-
+Potete utilizzare il seguente link per accedere al laboratorio virtuale di Ateneo [VMware Horizon (unimib.it)](https://libaas-lessons.si.unimib.it/) dopo esservi iscritti tramite il seguente link: [https://libaas.unimib.it/PubLab/register/be0be423c108013a2800](https://libaas.unimib.it/PubLab/register/be0be423c108013a2800). 
