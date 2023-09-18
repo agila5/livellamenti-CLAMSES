@@ -21,3 +21,9 @@ Per maggiori informazioni su entrambi i corsi, potete consultare i syllabus: [qu
 - Mercoledì 20/9, ore 8.30 - 10.30, lab 531 (U5)
 - Venerdì 22/9, ore 10.30 - 13.30, lab 531 (U5)
 - Venerdì 22/9, ore 14.30 - 16.30, lab 531 (U5)
+
+## Laboratorio Virtuale 
+
+Potete utilizzare il seguente link per accedere al laboratorio virtuale di Ateneo: VMware Horizon (unimib.it)
+
+

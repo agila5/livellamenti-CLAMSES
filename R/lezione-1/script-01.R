@@ -7,11 +7,11 @@
 # Possiamo utilizzare R come una calcolatrice:
 1 + 1
 6 * 7.1 # NB: il separatore decimale e' "." non ","
-3 ^ 2 # o, equivalentenmente, 3 ** 2
+3 ^ 2 # o, equivalentemente, 3 ** 2
 
-# NB: Tutto cio' che viene riportato in uno script dopo il simbolo "#" (incluso)
-# viene considerato da R come un "commento" e non viene interpretato. I commenti
-# servono a descrivere il comportamento di un blocco di codice.
+# NB: Tutto cio' che viene riportato in uno script R dopo il simbolo "#"
+# (incluso) viene considerato da R come un "commento" e non viene eseguito. I
+# commenti servono a descrivere il comportamento di un blocco di codice.
 
 # Quale pensate che sia il risultato della seguente operazione?
 1 + 1 / 2
@@ -26,13 +26,14 @@ exp(1)
 log(2)
 sin(0); cos(pi)
 
-# NB: Il simbolo ";" serve a concatenare due espressioni sulla stessa riga
+# NB1: Il simbolo ";" serve a concatenare due espressioni sulla stessa riga
 # NB2: Il linguaggio R e' detto "case sensitive" (nel senso che distingue tra
 # lettere maiuscole e minuscole). Di conseguenza, la seguente operazione
 # restituisce un errore
 SIN(pi)
 
-# poichè la funzione SIN non esiste. 
+# poichè la funzione SIN non esiste (mentre, come abbiamo già visto, esiste la
+# funzione sin).
 
 # 2. Chiedere aiuto -------------------------------------------------------
 
@@ -40,7 +41,7 @@ SIN(pi)
 log(1)
 
 # in che base e' calcolato il logaritmo? Base 10? Base e? Per rispondere a
-# questa domanda dobbiamo consultare la "help page" della funzione "log". Per
+# questa domanda dobbiamo consultare la "help page" della funzione "log" e, per
 # farlo esistono due modi:
 ?log
 
@@ -52,7 +53,8 @@ help(log)
 # e).
 
 # Nel caso volessimo cercare aiuto per una funzione di cui non ricordiamo
-# precisamente il nome ma solo una generica descrizione:
+# precisamente il nome ma solo una generica descrizione possiamo fare come
+# segue:
 help.search("Wilcox")
 
 # oppure
@@ -73,21 +75,22 @@ help.start()
 
 # Tutti i comandi visti nelle sezioni 1 e 2 calcolano un valore (e.g. exp(3)) e
 # lo stampano a schermo. Dopo di che, questo valore e' perso. Se volessimo
-# conservare questo valore per utilizzarlo dopo altre n operazioni, dobbiamo
-# assegnarlo ad una variabile tramite l'operatore " <- " (o, equivalentemente, "
-# = "). Ad esempio:
+# conservare questo valore per utilizzarlo in seguito, dovremmo assegnarlo ad
+# una variabile tramite l'operatore " <- " (o, equivalentemente, " = "). Ad
+# esempio:
 y <- 0
 x <- 2 + 2
 
 # Se controlliamo il "Global Environment" (scheda in alto a dx della
-# configurazione di default di Rstudio) vediamo che sono state create due
-# variabili chiamate "x" ed "y". Ad "y" e' assegnato il valore 0 mentre ad "x" e'
-# assegnato il valore restituito dall'operazione "2 + 2".
+# configurazione di default di Rstudio) vediamo che dopo aver eseguito i comandi
+# precedenti sono state create due variabili chiamate "x" ed "y". Ad "y" e'
+# assegnato il valore 0 mentre ad "x" e' assegnato il valore restituito
+# dall'operazione "2 + 2".
 
-# Possiamo sempre richiamare queste due variabili:
+# Possiamo sempre richiamare queste due variabili tramite il loro nome: 
 x
 
-# ed utilizzarle per operazioni
+# ed utilizzarle per diverse operazioni, e.g. 
 x ^ y
 
 # Per elencare tutte le variabili salvate in memoria possiamo usare il seguente
@@ -109,11 +112,12 @@ rm(list = ls())
 # NB2: Come succede se eseguiamo il codice precedente senza evidenziare
 # unicamente la sintassi rilevante?
 
-# NB3: L'insieme di caratteri che puo' essere usato per specifica il nome di una
-# variabile dipende da alcune caratteristiche del PC (i.e. ?locales). Io vi
-# suggerire di utilizzare unicamente le lettere [a-zA-Z], i numeri da 0 a 9 ed i
-# caratteri "-", "_" e ".". Il nome di una variabile non puo' cominciare con un
-# numero (e.g. 2x <- 1 non e' un comando valido).
+# NB3: L'insieme di caratteri che puo' essere usato per specificare il nome di
+# una variabile dipende da alcune caratteristiche del PC (i.e. ?locales). Io vi
+# suggerire di utilizzare unicamente le lettere da A a Z (maiuscole o
+# minuscole), i numeri da 0 a 9, ed i caratteri "-", "_" e ".". Il nome di una
+# variabile non puo' cominciare con un numero (e.g. 2x <- 1 non e' un comando
+# valido).
 
 # NB4: Il linguaggio R e' case sensitive. Di conseguenza, il seguente codice
 # restituisce errore.
@@ -125,17 +129,17 @@ rm(x)
 # 4. Le funzioni in R -----------------------------------------------------
 
 # NB: Quanto segue e' solo una piccola introduzione al concetto di "funzione" in
-# R. Nelle prossime lezioni vedremo piu' dettagli e impareremo a definire nuove
+# R. Nelle prossime lezioni vedremo piu' dettagli ed impareremo a definire nuove
 # funzioni.
 
 # Come abbiamo appena visto, diverse funzioni matematiche (e.g. exp, log, help)
-# sono implementate di default nel software R.
+# sono implementate di default nel software.
 
 # Per eseguire una funzione, e' necessario scriverne il nome includendo eventuali
 # argomenti aggiuntivi tra parentesi. Ad esempio:
 log(4)
 
-# Cosa succede se non includo le parentesi tonde?
+# NB: Cosa succede se non includo le parentesi tonde?
 log
 
 # Dalla help page (i.e. ?log) possiamo leggere quali sono gli argomenti
@@ -147,10 +151,10 @@ log
 log(4)
 
 # calcola il logaritmo di 4 in base e. Per cambiare la base possiamo scrivere
-log(4, base = 2)
+log(4, 2)
 
 # o, equivalentemente,
-log(4, 2)
+log(4, base = 2)
 log(base = 2, 4)
 log(base = 2, x = 4)
 
@@ -163,10 +167,10 @@ log(4, 2)
 # chiede di calcolare il logaritmo di 4 in base 2. D'altro canto, "by name" vuol
 # dire che i valori passati entro le parentesi tonde vengono definiti
 # specificando l'argomento a cui devono essere assegnati. Ad esempio:
-log(x = 4, base = 2)
+log(base = 2, x = 4)
 
 # o, equivalentemente,
-log(base = 2, x = 4)
+log(x = 4, base = 2)
 
 # NB: E' possibile anche mischiare i due stili.
 log(4, base = 2)
@@ -181,15 +185,17 @@ log(exp(3))
 # oppure
 sqrt(3 ^ 2)
 
-# Le operazioni piu' "interne" vengono eseguite per prime.
+# In questo caso, le operazioni piu' "interne" vengono eseguite per prime.
 
-# 5. Data types in R ------------------------------------------------------
+# 5. I vettori in R -------------------------------------------------------
 
 # Uno degli oggetti piu' comuni con cui avrete a che fare quando lavorate con R
 # sono i "vettori": sequenze di valori aventi lo stesso "tipo".
 
 # Per creare un vettore si utilizza la funzione "c()", ad esempio:
-x <- c(4, 5, 6)
+(x <- c(4, 5, 6))
+
+# crea un vettore denominato x di tipo numeric. 
 
 # L'operatore "[..]" puo' essere utilizzato per estrarre parti di un vettore
 # specificando uno o piu' indici di tipo numerico. Ad esempio:
@@ -207,10 +213,6 @@ x[c(1, 3)]
 # E' possibile anche rimuovere parti di un vettore utilizzando indici negativi:
 x[-1]
 
-# In R esistono 6 tipologie: "logical", "integer", "double", "complex",
-# "character", "raw". Le classi "complex" e "raw" sono molto piu' rare delle
-# altre e, per semplicita', presenteremo solamente i 4 tipi piu comuni.
-
 # NB: In R non esiste il concetto di "scalare", quindi anche un singolo valore
 # (e.g. 3) e' un vettore di lunghezza 1.
 
@@ -218,28 +220,37 @@ x[-1]
 length(x)
 length(4) # un singolo numero è un vettore di tipo double con lunghezza 1
 
-# 5.1 Logical  -----------------------------------------------------------
+# 6. Le tipologie di vettori ----------------------------------------------
+
+# In R esistono 6 tipologie: "logical", "integer", "double", "complex",
+# "character", "raw". Le classi "complex" e "raw" sono molto piu' rare delle
+# altre (almeno nell'analisi statistica) e, per semplicita', presenteremo
+# solamente i 4 tipi piu comuni.
+
+# > 5.1 Logical  -----------------------------------------------------------
 
 # I vettori di tipo "logical" sono il risultato di un test il cui esito puo'
 # essere solamente "vero" (TRUE) oppure "falso" (FALSE). Ad esempio:
 
 4 < 56
 
-# dove l'operatore "<" serve a testare se la quantita' a sx e' minore della
+# L'operatore "<" serve a testare se la quantita' a sx e' minore della
 # quantita' a dx. Analogamente
 
 x >= 5
 
-# NB: L'operatore >= viene applicato "elemento per elemento". Secondo il
-# linguaggio R, questo significa che l'operazione ">=" è una operazione
-# "vettorizzata" e vedremo meglio il significato di questa operazione nella
-# lezione 2.
+# NB: Nel codice precedente l'operatore >= viene applicato "elemento per
+# elemento" (nel senso che il risultato dell'operazione x >= 5 è un vettore il
+# cui elemento i-esimo è il risultato del test x[i] >= 5). Secondo il linguaggio
+# R, questo significa che l'operazione ">=" è una operazione "vettorizzata" e
+# vedremo meglio il significato di questa operazione nella lezione 2.
 
 # Possiamo definire un vettore di valori logici come segue:
 p <- c(TRUE, FALSE, TRUE)
 
 # L'operatore "!" serve a negare un'operazione logica o un vettore di valori
 # logici:
+!TRUE
 !p
 
 # L'operatore "[" accetta anche indici specificati tramite vettori di tipo
@@ -263,7 +274,7 @@ is.logical(x)
 # logici. Ad esempio:
 TRUE & FALSE
 (TRUE | FALSE) & FALSE
-c(TRUE, FALSE) | c(FALSE, FALSE) # l'operazione viene eseguita "pairwise"
+c(TRUE, FALSE) | c(FALSE, FALSE) # l'operazione viene eseguita "pairwise", vedi lezione 2. 
 
 # Le funzioni "all()" ed "any()" possono essere usate per determinare se:
 # 1) tutti gli elementi di un vettore logico sono pari a TRUE;
@@ -275,10 +286,10 @@ all(x >= 6)
 any(x >= 6)
 any(x >= 7)
 
-# Puliamo il working space (o Global Environment)
+# Puliamo il nostro working space (ovvero il Global Environment)
 rm(list = ls())
 
-# 5.2 Integer and double ---------------------------------------------------
+# > 5.2 Integer and double ---------------------------------------------------
 
 # R utilizza due classi distinte per rappresentare i valori numerici: "integer"
 # e "double".
@@ -292,15 +303,19 @@ c(4, 7)
 
 # indica un vettore di tipo "double".
 
-# Tipicamente, il tipo "integer" viene utilizzato da R quando egli si deve
-# interfacciare con software esterni (e.g. C, Fortran) dove la differenza tra
-# "int" e "double"/"float"/"real" e' molto piu' rilevante. La differenza tra
-# "integer" e "double" non e' cosi' rilevante per i nostro scopi . Inoltre, la
-# classe integer e' molto meno comune del tipo "double" per cui non ci
-# soffermeremo troppo.
+# Tipicamente, il tipo "integer" viene utilizzato da R quando il software si
+# deve interfacciare con altri linguaggi (e.g. C, Fortran) dove la differenza
+# tra tipi "int" e "double" e' rilevante. La differenza tra "integer" e "double"
+# non e' cosi' importante per i nostro scopi. Inoltre, la classe integer e'
+# molto meno comune del tipo "double", percui non ci soffermeremo troppo su
+# questa distinzione.
 
-# Esistono tuttavia alcune eccezioni. Per esempio, l'operatore "a:b" puo' essere
-# utilizzato per creare una sequenza di numeri interi (...) che va da "a" a "b":
+# Esistono tuttavia alcune eccezioni. Per esempio, l'operatore ":" (utilizzato
+# con una sintassi tipo a:b) puo' essere utilizzato per creare una sequenza di
+# numeri interi che va da "a" a "b":
+1:5
+
+# oppure
 n <- 10
 1:n
 
@@ -308,10 +323,10 @@ n <- 10
 # nella help page) possono essere eseguite usando la funzione seq():
 seq(1, n)
 seq(1, n, by = 2)
-seq(1, n, length.out = 5) # non sempre restituisce una sequenza di interi...
+seq(1, n, length.out = 5) # non restituisce sempre una sequenza di interi...
 
-# NB: L'approccio migliore per definire un elenco di indici che vanno da 1 ad n
-# (da usare per un ciclo o altre operazioni) non e' 1:n ma seq_len(n):
+# NB: L'approccio migliore per definire un elenco di indici da 1 ad n (da usare
+# per controllare un ciclo o altre operazioni) non e' 1:n ma seq_len(n):
 seq_len(n)
 
 # La differenza tra i due approcci e' importante quando la variabile n puo'
@@ -336,4 +351,6 @@ prod(x) # prodotto
 cumsum(x) # somma cumulata
 min(x); max(x) # min e max
 range(x) # come sopra ma in un unico vettore
-head(x); tail(x) # i primi e gli ultimi 6 elementi di un vettore
+head(x, 2); tail(x, 2) # i primi e gli ultimi 2 elementi di un vettore
+
+# Come possiamo notare, alcune di queste funzioni sono vettorizzate in maniera "nativa". 
