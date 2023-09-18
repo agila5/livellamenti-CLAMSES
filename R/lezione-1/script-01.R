@@ -7,6 +7,7 @@
 # Possiamo utilizzare R come una calcolatrice:
 1 + 1
 6 * 7.1 # NB: il separatore decimale e' "." non ","
+10 / 5 # Per la divisione, usiamo l'operatore /
 3 ^ 2 # o, equivalentemente, 3 ** 2
 
 # NB: Tutto cio' che viene riportato in uno script R dopo il simbolo "#"
@@ -25,6 +26,7 @@
 exp(1)
 log(2)
 sin(0); cos(pi)
+sin(0) cos(pi) # errore di sintassi
 
 # NB1: Il simbolo ";" serve a concatenare due espressioni sulla stessa riga
 # NB2: Il linguaggio R e' detto "case sensitive" (nel senso che distingue tra
@@ -32,7 +34,7 @@ sin(0); cos(pi)
 # restituisce un errore
 SIN(pi)
 
-# poichè la funzione SIN non esiste (mentre, come abbiamo già visto, esiste la
+# poiche' la funzione SIN non esiste (mentre, come abbiamo gia' visto, esiste la
 # funzione sin).
 
 # 2. Chiedere aiuto -------------------------------------------------------
@@ -79,7 +81,7 @@ help.start()
 # una variabile tramite l'operatore " <- " (o, equivalentemente, " = "). Ad
 # esempio:
 y <- 0
-x <- 2 + 2
+x = 2 + 2
 
 # Se controlliamo il "Global Environment" (scheda in alto a dx della
 # configurazione di default di Rstudio) vediamo che dopo aver eseguito i comandi
@@ -102,6 +104,9 @@ rm("x")
 
 # Per cancellarle tutte:
 rm(list = ls())
+
+# Per RIAVVIARE R da Rstudio, potete utilizzare 
+# la combinazione di comandi CTRL + SHIFT + F10. 
 
 # NB: Cosa succede se (volontariamente o meno) non completiamo la sintassi di un
 # comando? Ad esempio, cosa succede se seleziono e provo ad eseguire la seguente
@@ -141,6 +146,9 @@ log(4)
 
 # NB: Cosa succede se non includo le parentesi tonde?
 log
+
+# Questo invece da errore
+log 4
 
 # Dalla help page (i.e. ?log) possiamo leggere quali sono gli argomenti
 # accettati dalla funzione ed il loro ordine. In questo caso, la funzione "log"
@@ -203,6 +211,7 @@ x[1]
 
 # restituisce il primo elemento del vettore mentre
 x[c(1, 3)]
+x[1, 3] # non funziona
 
 # restituisce il primo ed il terzo elemento.
 
@@ -218,7 +227,7 @@ x[-1]
 
 # La lunghezza di un vettore puo' essere determinata usando la funzione "length()":
 length(x)
-length(4) # un singolo numero è un vettore di tipo double con lunghezza 1
+length(4) # un singolo numero e' un vettore di tipo double con lunghezza 1
 
 # 6. Le tipologie di vettori ----------------------------------------------
 
@@ -233,6 +242,8 @@ length(4) # un singolo numero è un vettore di tipo double con lunghezza 1
 # essere solamente "vero" (TRUE) oppure "falso" (FALSE). Ad esempio:
 
 4 < 56
+z <- c(TRUE, FALSE)
+z2 <- FALSE
 
 # L'operatore "<" serve a testare se la quantita' a sx e' minore della
 # quantita' a dx. Analogamente
@@ -240,9 +251,9 @@ length(4) # un singolo numero è un vettore di tipo double con lunghezza 1
 x >= 5
 
 # NB: Nel codice precedente l'operatore >= viene applicato "elemento per
-# elemento" (nel senso che il risultato dell'operazione x >= 5 è un vettore il
-# cui elemento i-esimo è il risultato del test x[i] >= 5). Secondo il linguaggio
-# R, questo significa che l'operazione ">=" è una operazione "vettorizzata" e
+# elemento" (nel senso che il risultato dell'operazione x >= 5 e' un vettore il
+# cui elemento i-esimo e' il risultato del test x[i] >= 5). Secondo il linguaggio
+# R, questo significa che l'operazione ">=" e' una operazione "vettorizzata" e
 # vedremo meglio il significato di questa operazione nella lezione 2.
 
 # Possiamo definire un vettore di valori logici come segue:
@@ -269,6 +280,7 @@ x[x >= 5]
 # Dato un vettore, posso testare se e' di tipo "logical" tramite "is.logical()":
 is.logical(p)
 is.logical(x)
+is.logical(p, x)
 
 # Gli operatori "&" (AND) e "|" (OR) possono essere usati per concatenare test
 # logici. Ad esempio:
@@ -324,17 +336,6 @@ n <- 10
 seq(1, n)
 seq(1, n, by = 2)
 seq(1, n, length.out = 5) # non restituisce sempre una sequenza di interi...
-
-# NB: L'approccio migliore per definire un elenco di indici da 1 ad n (da usare
-# per controllare un ciclo o altre operazioni) non e' 1:n ma seq_len(n):
-seq_len(n)
-
-# La differenza tra i due approcci e' importante quando la variabile n puo'
-# assumere anche valori negativi (a causa di errori nel codice, tipicamente). Ad
-# esempio:
-n <- -10
-1:n # strano...
-seq_len(n) # errore!
 
 # Dato un vettore di tipo double possiamo calcolare diverse quantita' anche
 # concatenando funzioni diverse:

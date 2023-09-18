@@ -1,7 +1,7 @@
 # 1. Supponendo che un cerchio abbia raggio r = 4, come fareste a calcolarne il
 # perimetro? E l'area?
 
-# NB: La costante pi-greco è implementata nel vettore pi
+# NB: La costante pi-greco e' implementata nel vettore pi
 pi
 
 # 2. Dopo aver letto la pagina di help delle funzioni ?choose e ?factorial,
