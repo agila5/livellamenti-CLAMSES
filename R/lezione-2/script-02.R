@@ -35,7 +35,7 @@ x ^ y
 # quelle che potremmo definire noi a mano. Di conseguenza, se possibile, sarebbe
 # utile cercare di evitare di scrivere "cicli for" (e operazioni analoghe, come
 # vedremo in seguito) preferendo l'utilizzo degli operatori vettorizzati.
-# Chiaramente, cio' non e' sempre possibile...
+# Chiaramente, cio' non e' sempre possibile ...
 
 # Ma cosa succede quando una operazione vettorizzata viene applicata a due
 # operatori che non hanno la stessa lunghezza? Ad esempio, cosa vi aspettate che
@@ -102,6 +102,8 @@ all.equal(x, y)
 # puo' essere molto pericolo nel caso in cui x sia rappresentato internamente
 # utilizzando un tipo "double". Meglio usare isTRUE(all.equal(x, 0)). 
 
+# if (isTRUE(all.equal(x, 0))) {...}
+
 # NB1: Questo non e' un problema unicamente di R ma e' intrinseco alla
 # rappresentazione numerica utilizzata dai computer. Se volete piu' dettagli,
 # provate a leggere quanto riportato al seguente link:
@@ -139,7 +141,7 @@ install.packages("reprex")
 
 # Successivamente, per utilizzare le funzionalita' extra definite in tale
 # pacchetto, dobbiamo caricarlo:
-library(reprex)
+library("reprex")
 
 # NB: E' necessario installare un pacchetto R solo una volta, mentre dobbiamo
 # caricarlo ogni volta che apriamo una nuova sessione di R.
@@ -200,6 +202,8 @@ tolower(toupper(x))
 # un lavoro:
 library(tools)
 toTitleCase(x)
+toTitleCase("andrea and marco go to the beach")
+toTitleCase("andrea e marco vanno in spiaggia")
 
 # NB: Questa funziona e' ottimizzata per il testo scritto in inglese.
 
@@ -227,7 +231,7 @@ gsub("^[^r]{1}", "*", x)
 
 # - Le operazioni sulle stringhe di testo dipendono molto dalla lingua (e, piu'
 # in particolare, dal "locale") che viene utilizzato. Anche in questo caso vi
-# rimando a https://r4ds.had.co.nz/strings.html#locales
+# rimando a https://r4ds.had.co.nz/strings.html#locales.
 
 # La funzione is.character() serve per testare se l'input e' un vettore di tipo
 # character.
@@ -243,13 +247,13 @@ strsplit(y, " ")
 
 rm(list = ls())
 
-# 2. Fattori --------------------------------------------------------------
+# 5. Fattori --------------------------------------------------------------
 
 # Il linguaggio R implementa una struttura dati chiamata "factor" che facilita
 # l'analisi di dati categoriali. I factor sono particolarmente utili per
 # rappresentare variabili che possono assumere solo una categoria tra un insieme
 # noto e finito di valori (e.g. il genere, la tipologia di impiego, il mese di
-# nascita, ...). I valori possono avere un ordinamento (e.g.le gerarchie in
+# nascita, ...). I valori possono avere un ordinamento (e.g. le gerarchie in
 # ambito militare) oppure no (e.g. il colore dei capelli).
 
 # Per creare un oggetto factor possiamo usare la funzione omonima:
@@ -274,7 +278,7 @@ month.abb
 
 rm(list = ls())
 
-# 3. Coercizione ----------------------------------------------------------
+# 6. Coercizione ----------------------------------------------------------
 
 # Come detto nella lezione precedente, in R un vettore non e' altro che una
 # sequenza di valori aventi lo stesso tipo. La funzione "c" serve per
@@ -296,13 +300,14 @@ c(FALSE, 1, "A")
 # In R esistono diverse funzioni che permettono di effettuare una conversione
 # esplicita tra tipi diversi. Seguono tutte la sintassi "as.*tipo*". Ad esempio:
 as.numeric(c("1", "2", "3.14")) # numeric vuol dire double o integer
-as.integer(c("1", "2", "3.88"))
 
 # oppure
 as.character(c(pi, TRUE))
+as.character(TRUE)
 
 # Nel caso in cui la conversione non sia opportunamente definita, R restituisce
 # un valore mancante (o NA, vedi lezione 3) ed un messaggio di warning:
+as.numeric("123.456")
 as.numeric("mela")
 
 # NB: L'operazione di coercizione tra valori logici e numeric viene effettuata
@@ -311,6 +316,7 @@ as.numeric(TRUE)  # TRUE  ---------------> 1
 as.numeric(FALSE) # FALSE ---------------> 0
 as.logical(0)     # 0 ---------------> FALSE
 as.logical(42)    # tutto il resto ---> TRUE
+as.logical(1)     #                ---> TRUE
 
 # Per questo motivo,
 FALSE * TRUE + TRUE * 2 - FALSE * 10
@@ -325,7 +331,7 @@ prod(x + 1)
 
 rm(list = ls())
 
-# 5. Matrici --------------------------------------------------------------
+# 7. Matrici --------------------------------------------------------------
 
 # Le matrici possono essere viste come una generalizzazione dei vettori in due
 # dimensioni. Come per i vettori, tutti gli elementi di una matrice devono
@@ -365,6 +371,7 @@ X[1, 2]
 
 # oppure
 X[1, ] # prima riga
+X[c(1, 2), ] # prima e seconda riga
 X[, c(2, 3)] # seconda e terza colonna
 
 # Vediamo inoltre che, di default, il subset di un singolo elemento o di una
@@ -372,6 +379,7 @@ X[, c(2, 3)] # seconda e terza colonna
 # riconosce dal modo in cui gli oggetti vengono stampati a schermo). Il
 # parametro "drop" serve a modificare questo comportamento:
 X[1, 2, drop = FALSE]
+X[1, , drop = FALSE]
 
 # Le operazioni matematiche (vettorizzate) viste in precedenza sono 
 # estendibili anche alle matrici. Ad esempio:
@@ -426,7 +434,7 @@ qr(X) # QR decomposition
 # cui vogliamo fare subset: 
 
 X
-X[1] # il primo elemento nella rappresentazione di X
+X[2] # il primo elemento nella rappresentazione di X
 X[1, ] # la prima riga
 X[, 1] # la prima colonna
 
