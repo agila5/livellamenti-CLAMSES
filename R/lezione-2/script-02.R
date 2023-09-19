@@ -16,7 +16,7 @@ y <- c(4, 5, 6)
 
 # restituisce un vettore i cui elementi sono ricavati sommando le coppie di
 # valori in x ed y:
-#                     z_i = x_i + y_i ; i = 1, ... 3
+#                       z_i = x_i + y_i ; i = 1, ... 3
 
 x - y
 x * y
@@ -80,8 +80,8 @@ x == y
 
 # Perche'? Quando un computer deve definire internamente un numero reale x, egli
 # utilizza una rappresentazione in base binaria esprimibile tramite un numero
-# finito di bit. Di conseguenza, tranne che in pochi casi, i numeri reali non
-# possono essere salvati in memoria in forma esatta.
+# finito di bit. Di conseguenza, tranne che in pochi casi (e.g. i multipli di 2), 
+# i numeri reali non possono essere salvati in memoria in forma esatta.
 
 # La funzione formatC ci permette di chiarire meglio questo concetto forzando R
 # a stampare i valori associati ad x ed y utilizzando un numero maggiore di
@@ -90,17 +90,17 @@ formatC(x, 50)
 formatC(y, 50)
 
 # Per ovviare a questo problema, possiamo usare la funzione all.equal() la quale
-# implementa un argomento chiamato "tolerance" che permette di testare
+# contiene un argomento chiamato "tolerance" che permette di testare
 # l'uguaglianza di due vettori di tipo "double" a meno di un certo fattore di
-# tolleranza.
+# tolleranza:
 all.equal(x, y)
 
 # NB: Questo implica anche che un costrutto del tipo:
 
 # if (x == 0) {...}
 
-# puo' essere molto pericolo nel caso in cui x sia rappresentato interamente
-# utilizzando un tipo "double". Meglio usare isTRUE(all.equal(x, 0). 
+# puo' essere molto pericolo nel caso in cui x sia rappresentato internamente
+# utilizzando un tipo "double". Meglio usare isTRUE(all.equal(x, 0)). 
 
 # NB1: Questo non e' un problema unicamente di R ma e' intrinseco alla
 # rappresentazione numerica utilizzata dai computer. Se volete piu' dettagli,
@@ -113,7 +113,7 @@ all.equal(x, y)
 # 3. I pacchetti R -----------------------------------------------------------
 
 # Il software R viene distribuito con un insieme di pacchetti (tipicamente
-# disponibili per qualsiasi versione di R) che implementano le funzionalita'
+# disponibili per diverse versione di R) che implementano le funzionalita'
 # principali. Possiamo elencarli con il seguente comando:
 installed.packages(priority = c("base", "recommended"))[, c("Package", "Priority")]
 
@@ -123,17 +123,17 @@ installed.packages(priority = c("base", "recommended"))[, c("Package", "Priority
 # elementi e creare un vettore, la funzione formatC per modificare il printing
 # di un oggetto, ... Il pacchetto "cluster" definisce funzioni per la cluster
 # analysis, "nnet" e "spatial" implementano dei metodi di base per l'analisi di
-# reti neurali e dati spaziali, è così via...
+# reti neurali e dati spaziali, e cosi via...
 
 # Un punto di forza del linguaggio R e' la sua comunita' e l'enorme
 # disponibilita' di pacchetti aggiuntivi che permettono di estendere il
 # linguaggio ed ampliare le capacita' del software. Infatti, un "pacchetto R"
-# non è altri che un insieme di funzioni e dati che ci permette di utilizzare il
+# non e' altri che un insieme di funzioni e dati che ci permette di utilizzare il
 # software per nuovi obiettivi. Questi pacchetti sono tipicamente disponibili
 # tramite un archivio centrale chiamato CRAN (Central R Archive Network):
 # https://cran.r-project.org/
 
-# Per utilizzare un pacchetto che non è tra quelli di default, innanzitutto e'
+# Per utilizzare un pacchetto che non e' tra quelli di default, innanzitutto e'
 # necessario installarlo:
 install.packages("reprex")
 
@@ -151,7 +151,7 @@ library(reprex)
 # - Stack Overflow: https://stackoverflow.com/questions/tagged/r
 # - Messaggi privati agli sviluppatori
 
-# Un altro pacchetto R (poco utile ma molto divertente da usare) è "fortunes":
+# Un altro pacchetto R (poco utile ma molto divertente da usare) e' "fortunes":
 install.packages("fortunes")
 library(fortunes)
 fortune(124L)
@@ -196,7 +196,8 @@ toupper(x)
 tolower(toupper(x))
 
 # Inoltre, il pacchetto R "tools" definisce una funzione chiamata "toTitleCase"
-# che permette di scrivere una stringa di testo come se fosse un titolo:
+# che permette di scrivere una stringa di testo come se fosse il titolo di 
+# un lavoro:
 library(tools)
 toTitleCase(x)
 
@@ -238,7 +239,7 @@ is.character(42L)
 strsplit(y, " ")
 
 # L'output di questa funzione e' una lista, una delle strutture dati piu'
-# importanti di R che verra' introdotta in seguito.
+# importanti di R che verra' introdotta nella lezione 3.
 
 rm(list = ls())
 
@@ -361,6 +362,8 @@ nrow(X); ncol(X)
 # prima riga e seconda colonna (iniziando a contare righe e colonne dalla
 # posizione in alto a sx):
 X[1, 2]
+
+# oppure
 X[1, ] # prima riga
 X[, c(2, 3)] # seconda e terza colonna
 
@@ -370,8 +373,8 @@ X[, c(2, 3)] # seconda e terza colonna
 # parametro "drop" serve a modificare questo comportamento:
 X[1, 2, drop = FALSE]
 
-# Le operazioni matematiche viste in precedenza sono estensibili anche alle
-# matrici. Ad esempio:
+# Le operazioni matematiche (vettorizzate) viste in precedenza sono 
+# estendibili anche alle matrici. Ad esempio:
 (X <- matrix(1:4, nrow = 2, ncol = 2))
 (Y <- diag(2)) # matrice identita' di dimensione 2
 
@@ -418,18 +421,14 @@ qr(X) # QR decomposition
 # https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Arrays-and-matrices
 # ).
 
-# Per questo motivo, una operazione del tipo 
-X[c(1, 2)]
-
-# restituisce come output un vettore che contiene gli elementi in posizione 1 e
-# 2 di X. Di conseguenza, quando vogliamo fare un subset degli elementi di una
-# matrice, è sempre importante specificare correttamente gli indici rispetto a
+# Di conseguenza, quando vogliamo fare un subset degli elementi di una
+# matrice, e' sempre importante specificare correttamente gli indici rispetto a
 # cui vogliamo fare subset: 
 
 X
-X[1]
-X[1, ]
-X[, 1]
+X[1] # il primo elemento nella rappresentazione di X
+X[1, ] # la prima riga
+X[, 1] # la prima colonna
 
 rm(list = ls())
 
