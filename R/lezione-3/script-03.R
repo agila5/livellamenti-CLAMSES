@@ -12,6 +12,7 @@ list(list(1, 2), matrix(1:3))
 
 # La funzione str() e' molto utile per analizzare una lista e le sue componenti.
 x <- list(1, "A", matrix(1:4, 2, 2))
+x
 str(x)
 
 # Il subset (e il subset-assignment) di liste funziona in maniera leggermente
@@ -33,14 +34,17 @@ det(x[[3]])
 
 # Per eliminare un elemento da una lista posso assegnare NULL al corrispondente
 # indice.
+str(x)
 x[[1]] <- NULL
 str(x)
 
-# Gli elementi di una lista possono essere numerati
+# Gli elementi di una lista possono essere nominati
 (y <- list(a = 1, b = "U5"))
 
 # e posso utilizzare tali nomi per estrarre parti di una lista
 y$a
+y$b
+y[["a"]]
 
 # NB: Tantissime funzioni in R (e.g. lm()) restituiscono output di tipo lista.
 
@@ -56,6 +60,8 @@ c("Andrea" = 29, "Marco" = 27, "Luca" = NA)
 # elementi in input sono NA:
 x <- c(1, 2, NA)
 is.na(x)
+x[!is.na(x)]
+na.omit(x)
 
 # NB: Non e' possibile confrontare NA(s) con l'operatore di uguaglianza logica:
 NA == NA
@@ -83,7 +89,7 @@ rnorm(n = 5, mean = 0, sd = 1)
 # generica v.c. mentre rnorm estrae 5 realizzazioni aleatorie.
 
 # Per calcolare la CDF di X in un punto q, e.g. P(X <= 0), possiamo usare
-pnorm(q = 0, mean = 0, sd = 1)
+pnorm(q = 0, mean = 0, sd = 10)
 
 # mentre qnorm calcola i quantili di X
 qnorm(p = 0.975, mean = 0, sd = 1)
@@ -129,7 +135,7 @@ runif(1)
 # divertente:
 
 # "The generation of random numbers is too important to be left to chance."
-# — Robert R. Coveyou
+# > Robert R. Coveyou
 
 # 4. Grafici di base ------------------------------------------------------
 
@@ -155,7 +161,7 @@ plot(x1, y1)
 # argomenti (descritti nella sezione Arguments) e diversi "graphical parameters"
 # (descritti nella sezione Details) per modificare ed aggiustare l'aspetto di un
 # grafico. Ad esempio:
-plot(x1, y1, col = "red", cex = 2, pch = 20, xlab = "Hi!", ylab = "", main = "My second plot!")
+plot(x1, y1, col = "red", cex = 2, pch = "+", xlab = "Hi!", ylab = "", main = "My second plot!")
 
 # Tipicamente, ogni volta che eseguiamo la funzione plot() viene generato un
 # grafico nuovo. Per aggiungere un "nuovo" insieme di punti ad un grafico
@@ -182,118 +188,9 @@ dev.off()
 # e, per resettare i vecchi parametri grafici:
 par(old_par)
 
-# 4.2 segments() e lines() ------------------------------------------------
-
-# Le funzioni segments() e lines() possono essere usate per aggiungere linee e
-# segmenti ad un grafico gia' esistente. Ad esempio:
-plot(x2, y2, xlim = c(-0.25, 10.25), ylim = c(-0.25, 10.25), pch = 20)
-segments(
-  x0 = c(0,   0, 10, 10),
-  y0 = c(0,  10, 10,  0),
-  x1 = c(0,  10, 10,  0),
-  y1 = c(10, 10,  0,  0),
-  lwd = 2, # spessore della linea
-  col = 2, # Provate a leggere la sezione "Color Specification" in ?par
-  lty = 2 # tipologia di tratto
-)
-
-# NB: La funzione plot e' vettorizzata anche rispetto ai suoi parametri
-plot(x1, y1, col = 1:10, pch = 1:10, cex = 1:10 / 2, lwd = 3, xlab = "", ylab = "")
-
-# lines() funziona come segue
-x3 <- seq(-5, 5, by = 0.1)
-plot(x3, sin(x3), type = "l", ylab = "", xlab = "x", lwd = 2, col = "red")
-lines(x3, cos(x3), lwd = 2, col = "blue")
-
-rm(list = ls())
-
-# 4.3 hist() and density() ------------------------------------------------
-
-# Le funzioni hist() e density() possono essere utilizzate per ricavare una
-# rappresentazione grafica che descrive l'andamento di una variabile numerica.
-# In particolare, hist() serve per calcolare e rappresentare un "istogramma"
-# dato un insieme di valori in input:
-set.seed(1)
-x <- rnorm(n = 500)
-hist(x)
-
-# Tramite l'argomento "breaks" possiamo modificare il numero di "breakpoints"
-# utilizzati nella funzione:
-hist(x, breaks = 30)
-
-# Inoltre notiamo come, di default, la funzione crea un istogramma con i
-# conteggi di frequenze (guardate i valori riportati sull'asse y). Possiamo
-# modificare questo aspetto tramite l'argomento "freq":
-hist(x, breaks = 30, freq = FALSE)
-
-# La funzione density() serve per ricavare una stima non-parametrica di una
-# funzione di densita' f partendo da un campione di osservazioni X1, ..., Xn ed
-# uno stimatore kernel. In maniera molto informale, potremmo dire che density()
-# puo' essere usata per ottenere una versione lisciata di un istogramma di
-# frequenze. Senza soffermarci troppo sui dettagli teorici (che pero' sono molto
-# importanti, provate infatti a leggere ?density e alcune delle references li'
-# riportate), l'utilizzo e' piuttosto immediato.
-density(x)
-
-# L'output e' un po' criptico. Tuttavia, grazie alle "magiche" proprieta' della
-# funzione plot() possiamo rappresentarlo molto facilmente:
-plot(density(x))
-
-# Vediamo tra poco perche' e' possibile fare cio'. Per il momento, possiamo solo
-# notare graficamente la somiglianza tra l'istogramma e la stima di densita'
-# kernel. L'argomento di gran lunga piu' imporante di density() e' "bw" il quale
-# serve a specificare il "grado" di lisciamento desiderato. Ad esempio:
-plot(density(x, bw = 1))
-plot(density(x, bw = 0.1))
-
-# Anche la funzione lines() gode delle stesse proprieta' magiche di plot(). Per
-# questo motivo, possiamo sfruttarla per sovrapporre una stima di densita' non
-# parametrica all'istogramma di frequenze relative.
-hist(x, breaks = 30, col = "white", border = "darkred", freq = FALSE)
-lines(density(x), lwd = 2, col = grey(0.2), lty = 4)
-
-# 4.4 curve() -------------------------------------------------------------
-
-# La funzione curve serve per disegnare una funzione (nel senso che intende R) o
-# una espressione matematica del tipo x |-> f(x) specificata tramite il suo
-# primo argomento. Ad esempio:
-curve(expr = x ^ 3 - x ^ 2 - 3 * x, from = -2, to = 2.5)
-
 # oppure
-curve(dnorm, from = -3, to = 3)
+par(mfrow = c(1, 1))
 
-# Il grafico creato da curve() puo' essere personalizzato analogamente a quanto
-# visto prima:
-curve(
-  expr = x ^ 3 - x ^ 2 - 3 * x,
-  from = -2,
-  to = 2.5,
-  lwd = 2,
-  col = 2,
-  main = bquote(f(x) == x^3 - x ^ 2 - 3 * x), # see ?plotmath
-  xlab = "x",
-  ylab = "f(x)",
-  cex.axis = 1.25,
-  cex.lab = 1.5,
-  cex.main = 2,
-  lty = 2
-)
+# elenco di tutti i parametri grafici e della sessione R
+par()
 
-# Concludiamo questa parte mostrando come si puo' calcolare la "Empirical
-# Cumulative Distribution Function" (ECDF, ?ecdf) dato un vettore numerico x in
-# input. In particolare, la ECDF e' una funzione F(t) costante a tratti che
-# calcola la percentuale di valori di x che e' minore o uguale a t. Ad esempio:
-x <- c(1, 2, 3)
-plot(ecdf(x))
-
-# Nel seguente esempio proviamo a confrontare la ECDF per un campione casuale
-# normale di ampiezza n = 100 con il suo equivalente teorico (aggiunto alla
-# figure tramite curve()).
-set.seed(1)
-x <- rnorm(100)
-plot(ecdf(x), cex = 0.1) # anche qua vediamo la "magia" di plot!
-curve(pnorm, add = TRUE, col = 2, lwd = 2) #NB: Notare add = TRUE
-
-# Chiaramente ci sono tantissimi argomenti che non abbiamo ancora coperto (le
-# palette di colori, la legenda, i parametri di par(), ...). Per tutto questo vi
-# rimando alle pagine di help e alla bibliografia suggerita.
