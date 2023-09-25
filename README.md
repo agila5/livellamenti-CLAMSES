@@ -1,3 +1,7 @@
+# NEWS (25/09/23)
+
+L'esame del corso "Livellamento di Analisi Matematica" si terrà il giorno martedì 3 ottobre alle ore 9.30 in aula U6-37. Non è necessaria alcuna iscrizione o comunicazione da parte vostra, potete presentarvi direttamente in aula. 
+
 # Corsi di livellamento per CLAMSES
 
 Questa repository verrà utilizzata per condividere il materiale relativo ai corsi di livellamento del Corso di Studi CLAMSES per tutti coloro che, per il momento, non possono accedere alle pagine e-learning: [Analisi Matematica](https://elearning.unimib.it/course/view.php?id=52809) e [Software R](https://elearning.unimib.it/course/view.php?id=52810).
