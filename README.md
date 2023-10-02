@@ -1,6 +1,8 @@
-# NEWS (25/09/23)
+# NEWS (02/10/23)
 
-L'esame del corso "Livellamento di Analisi Matematica" si terrà il giorno martedì 3 ottobre alle ore 9.30 in aula U6-37. Non è necessaria alcuna iscrizione o comunicazione da parte vostra, potete presentarvi direttamente in aula. 
+L'esame del corso "Livellamento di Analisi Matematica" si terrà il giorno martedì 3 Ottobre alle ore 9.30 in aula U6-37. Non è necessaria alcuna iscrizione o comunicazione da parte vostra, potete presentarvi direttamente in aula. 
+
+L'esame del corso "Livellamento al Software R" si terrà il giorno martedì 17 Ottobre alle ore 9 nel Laboratorio 715. Seguiranno comunicazioni relative alla modalità di iscrizione.  
 
 # Corsi di livellamento per CLAMSES
 
