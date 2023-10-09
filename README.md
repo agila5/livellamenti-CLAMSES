@@ -1,3 +1,10 @@
+# NEWS (09/10/23)
+Gentilissimi, a partire da questo momento troverete sulla pagina elearning del corso un [link](https://elearning.unimib.it/course/view.php?id=52810#section-5) tramite il quale è possibile registrarsi all'esame finale. 
+
+**NB: Gli studenti che non completeranno le procedure di iscrizione entro il giorno 16/10 alle ore 23:59 non potranno accedere alla prova finale.**
+
+Per qualsiasi dubbio non esitate a mandarmi una mail (andrea.gilardi@unimib.it). 
+
 # NEWS (02/10/23)
 
 L'esame del corso "Livellamento di Analisi Matematica" si terrà il giorno martedì 3 Ottobre alle ore 9.30 in aula U6-37. Non è necessaria alcuna iscrizione o comunicazione da parte vostra, potete presentarvi direttamente in aula. 
