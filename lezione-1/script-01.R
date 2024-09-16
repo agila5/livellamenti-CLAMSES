@@ -57,7 +57,7 @@ help(log)
 # Nel caso volessimo cercare aiuto per una funzione di cui non ricordiamo
 # precisamente il nome ma solo una generica descrizione possiamo fare come
 # segue:
-help.search("Wilcox")
+help.search("Wilcoxon")
 
 # oppure
 ??Wilcox
@@ -105,8 +105,8 @@ rm("x")
 # Per cancellarle tutte:
 rm(list = ls())
 
-# Per RIAVVIARE R da Rstudio, potete utilizzare 
-# la combinazione di comandi CTRL + SHIFT + F10. 
+# Per RIAVVIARE R da Rstudio, potete utilizzare la combinazione di comandi 
+# CTRL + SHIFT + F10. 
 
 # NB: Cosa succede se (volontariamente o meno) non completiamo la sintassi di un
 # comando? Ad esempio, cosa succede se seleziono e provo ad eseguire la seguente
@@ -233,10 +233,10 @@ length(4) # un singolo numero e' un vettore di tipo double con lunghezza 1
 
 # In R esistono 6 tipologie: "logical", "integer", "double", "complex",
 # "character", "raw". Le classi "complex" e "raw" sono molto piu' rare delle
-# altre (almeno nell'analisi statistica) e, per semplicita', presenteremo
-# solamente i 4 tipi piu comuni.
+# altre (almeno nell'analisi statistica). Di conseguenza, per semplicita',
+# presenteremo solamente i 4 tipi piu comuni.
 
-# > 5.1 Logical  -----------------------------------------------------------
+# > 6.1 Logical  -----------------------------------------------------------
 
 # I vettori di tipo "logical" sono il risultato di un test il cui esito puo'
 # essere solamente "vero" (TRUE) oppure "falso" (FALSE). Ad esempio:
@@ -301,7 +301,7 @@ any(x >= 7)
 # Puliamo il nostro working space (ovvero il Global Environment)
 rm(list = ls())
 
-# > 5.2 Integer and double ---------------------------------------------------
+# > 6.2 Integer and double ---------------------------------------------------
 
 # R utilizza due classi distinte per rappresentare i valori numerici: "integer"
 # e "double".
@@ -354,4 +354,5 @@ min(x); max(x) # min e max
 range(x) # come sopra ma in un unico vettore
 head(x, 2); tail(x, 2) # i primi e gli ultimi 2 elementi di un vettore
 
-# Come possiamo notare, alcune di queste funzioni sono vettorizzate in maniera "nativa". 
+# Come possiamo notare, alcune di queste funzioni sono vettorizzate in maniera
+# "nativa".

@@ -11,7 +11,7 @@ pi
 # - coefficiente binomiale (10 3)
 
 # 3. Si definisca un vettore x che contiene gli esiti ottenuti per n = 6 esami
-# diversi (scegliete pure voi i voti).
+# diversi (scegliete voi i voti).
 
 # - Come si calcola il voto medio?
 # - La deviazione standard dei voti?
