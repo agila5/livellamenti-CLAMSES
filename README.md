@@ -1,5 +1,11 @@
 # Corsi di livellamento al software R
 
+## News (01/10/2024)
+
+L'esame si terrà il giorno 21 Ottobre nel laboratorio 712 alle 16:30. Seguiranno istruzioni (condivise tramite il portale e-learning di Ateneo) su come iscriversi all'esame. 
+
+## Intro
+
 Questa repository verrà utilizzata per condividere il materiale relativo al corso di Livellamento al Software R per tutti coloro che, per il momento, non possono accedere alle pagine e-learning: <https://elearning.unimib.it/course/view.php?id=52810>.
 
 ## Syllabus
